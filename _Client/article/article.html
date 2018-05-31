@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta Tags for Bootstrap 4 -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap 4 CSS -->
+        <link 
+            rel="stylesheet" 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+
+        <!-- Bootstrap 4 Scripts -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous">
+        </script>
+
+        <!-- showdownJS ( Markdown to HTML converter ) Script -->
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js" 
+            integrity="sha256-dwhppIrxD8qC6lNulndZgtIm4XBU9zoMd9OUoXzIDAE=" 
+            crossorigin="anonymous">
+        </script>
+
+        <!-- Personal stylesheet -->
+        <link rel="stylesheet" type="text/css" href="_Client/article/article.css">
+        <script src="_Client/article/article.js"></script>
+    </head>
+
+    <body>
+        <!-- Start of Navbar -->
+        <div id="navbar-loader">
+            <script> 
+                $( function() { 
+                $("#navbar-loader").load("/_components/navbar/navbar.html", function() { 
+                $("#navbar-link-article").addClass( "active" ); } ); } )
+            </script> 
+        </div>
+        <!-- End of Navbar -->
+
+        <!-- Start of main Content -->
+        <div class="container" id="mainContent"> <div class="jumbotron" id="mainJumbotron">
+
+            <!-- Start of Article search results -->
+            <ul class="list-group hide-me" id="article-search-results">
+                
+            </ul>
+            <!-- End of Article search results -->
+    
+            <!--  Start of Main Article -->
+            <div id="article-main-read" class="hide-me">
+                    <h4 id="article-main-header">DummyHeader</h4>
+                    <hr id="article-border" style="height:2px;border:none;color:#333;background-color:#333;"></hr>
+                    <p id="article-main-content">DummyContent DummyContent DummyContent</p>
+            </div>
+            <!-- End of Main Article -->
+            
+            <!-- Hide all elements that uses the class hide-me -->
+            <script type="text/javascript">
+                $( ".hide-me" ).hide()
+            </script>
+
+        </div> </div>
+        <!-- End of main content -->
+    </body>
+</html>

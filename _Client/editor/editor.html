@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta Tags for Bootstrap 4 -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap 4 CSS -->
+        <link 
+            rel="stylesheet" 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+
+        <!-- Bootstrap 4 Scripts -->
+        <script 
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous">
+        </script>
+
+        <!-- JQuery Script -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+        </script>
+    
+        <!-- Include Font-Awesome library -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Include Froala JS file. -->
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.1/js/froala_editor.min.js'></script>
+
+        <!-- Include Froala Editor style. -->
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.1/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.1/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+            
+        <!-- Personal stylesheet -->
+        <link rel="stylesheet" type="text/css" href="/_Client/editor/editor.css">
+        <script src="/_Client/editor.js"></script>
+
+    </head>
+
+    <body>
+        <!-- Start of Navbar -->
+        <div id="navbar-loader">
+            <script> 
+                $( function() { 
+                $( "#navbar-loader" ).load( "/_components/navbar/navbar.html", function() { 
+                $( "#navbar-link-new" ).addClass( "active" ); } ); } )
+            </script> 
+        </div>
+        <!-- End of Navbar -->
+
+        <!-- Start of main Content -->
+        <div class="container" id="main-content">
+            <div class="jumbotron" id="main-jumbotron">
+
+                <!-- start of modal popup -->
+                <div id="modal-loader">
+                    <script> 
+                        $( function() { 
+                        $( "#modal-loader" ).load( "/_components/modal/modal.html" ) } )
+                    </script>
+                </div>
+                <!-- end of modal popup -->
+
+                <h5 id="editor-state">Status: New Article</h5>
+                <input class="form-control mr-sm-2" type="text" id="article-title" placeholder="Article Title"/>
+                <div id="froala-editor"></div>
+                <a class="btn btn-outline-primary my-2 my-sm-0 pull-right" id="article-submit" style="margin-left:8px">Submit</a>
+                <a class="btn btn-outline-primary my-2 my-sm-0 pull-right" id="article-delete">Delete</a>
+            </div>
+        </div>
+        <!-- End of main content -->            
+    </body>
+</html>
