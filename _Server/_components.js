@@ -19,5 +19,6 @@ application.get( '*/_components/*', ( request, response ) =>
     { 
         componentDir = componentDir.substring(0,questionIndex) 
     }
+
     response.sendFile( componentDir )
 })

@@ -10,8 +10,25 @@ $(document).ready( function() { editorMain()
 
     function editorMain()
     {
+        var button = [
+            'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript',             '|', 
+            'fontFamily', 'fontSize', 'color', 'paragraphStyle',                                    '|', 
+            'align', 'formatOL', 'formatUL', 'outdent', 'indent',                                   '|', 
+            'paragraphFormat', 'specialCharacters', 'insertHR',                                     '|', 
+            'clearFormatting', 'insertLink', 'insertImage', 'embedly', 'insertFile', 'insertTable', '|', 
+            'undo', 'redo', 'spellChecker',                                                         '|', 
+            'help'
+        ];
+
         // set up the default min height of the froala editor
-        jQuery( '#froala-editor' ).froalaEditor( { heightMin: 450 } )
+        jQuery( '#froala-editor' ).froalaEditor({ 
+            heightMin: 450, 
+            fullpage: true,
+            toolbarButtons: button,
+            toolbarButtonsMD: button,
+            toolbarButtonsXS: button,
+            toolbarButtonsSM: button,
+        })
 
         // add the enter key input listener for the article title modifier
         jQuery("#article-title").on('keyup', function (e) {

@@ -47,8 +47,6 @@ application.put( '/editor/submit', ( request, response ) =>
     var title   = request.query.title
     var content = request.body.Content
 
-    console.log( content )
-
     // check the validity of the request.
     if( title   == undefined || title   == null || title   == "" ||
         content == undefined || content == null || content == "" )
