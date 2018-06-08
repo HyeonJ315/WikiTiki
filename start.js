@@ -12,7 +12,7 @@ application.use( bodyParser.json() )
 application.use( bodyParser.urlencoded( { extended: false } ) )
 
 // Setup the mongodb connection
-const mongoClient = require('mongodb').MongoClient;
+const mongoClient = require( 'mongodb' ).MongoClient;
 
 mongoClient.connect ( config.MONGO_COMPLETEURL, { useNewUrlParser: true }, function(error, client)
 { 
@@ -47,4 +47,4 @@ function includeServerScripts()
 {
     glob.sync( './_Server/**/*.js' ).forEach( function( file ) 
     { require( path.resolve( file ) ); } );
-}
+}   

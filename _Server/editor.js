@@ -7,6 +7,7 @@ const application = global.application
 const mongoClient = global.mongoClient
 
 // region GET: Initial Webpage HTML/CSS/Javascript Loading
+
 application.get( '/editor', ( request, response ) =>
 {   response.sendFile( config.CLIENTDIR + "editor/editor.html" )
 })
@@ -96,7 +97,7 @@ function onNewArticle( response, uploadJSON )
 
 // endregion
 
-// region Attempt to delete the equested article from mongoDB
+// region DELETE: Attempt to delete the equested article from mongoDB
 
 application.delete( '/editor/delete', ( request, response ) =>
 {
@@ -116,3 +117,5 @@ application.delete( '/editor/delete', ( request, response ) =>
         }
     )
 })
+
+// endregion

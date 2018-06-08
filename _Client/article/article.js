@@ -1,5 +1,7 @@
 $(document).ready( function() { articleMain()
 
+    // region Article webpage initialization.
+
     function articleMain()
     {
         // obtain the query from the url
@@ -24,19 +26,19 @@ $(document).ready( function() { articleMain()
         return pQuery
     }
 
+    // endregion
+
     // region Request an article
 
     function requestArticle( title )
     {
         // send ajax request to obtain the article
-        $.ajax(
-            {
-                url: "/article/read?title="+title,
-                method: "GET",
-                success: onArticleReadSuccess,
-                error: onArticleReadError,
-            }
-        )
+        $.ajax({
+            url: "/article/read?title="+title,
+            method: "GET",
+            success: onArticleReadSuccess,
+            error: onArticleReadError,
+        })
     }
     
     function onArticleReadError( jqXHR, status, error )
@@ -70,14 +72,12 @@ $(document).ready( function() { articleMain()
     function requestSearchResult( search )
     {
         // send ajax request to obtain the search results
-        $.ajax(
-            {
-                url: "/article/search?search="+search,
-                method: "GET",
-                success: onArticleSearchSuccess,
-                error: onArticleSearchError,
-            }
-        )
+        $.ajax({
+            url: "/article/search?search="+search,
+            method: "GET",
+            success: onArticleSearchSuccess,
+            error: onArticleSearchError,
+        })
     }
 
     function onArticleSearchError( jqXHR, status, error )
@@ -93,7 +93,6 @@ $(document).ready( function() { articleMain()
 
         // write the new entries.
         $( ".article-search-item" ).remove()
-
         for( var key in data ) { if( data.hasOwnProperty(key) ) {
             var value = data[key]
             // strip html
@@ -105,12 +104,10 @@ $(document).ready( function() { articleMain()
                 "</li>                                                       \n" 
             )
         }}
-
         // show the search result.
         $( "#article-search-results" ).show()
     }
 
     // endregion
-
 
 })

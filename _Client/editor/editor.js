@@ -50,24 +50,22 @@ $(document).ready( function() { editorMain()
     function requestArticle( title )
     {
         // send ajax request to submit the article
-        jQuery.ajax(
+        jQuery.ajax({
+            url: "/editor/verify?title="+title,
+            method: "GET",
+            success: function( data, status, jqXHR  )
             {
-                url: "/editor/verify?title="+title,
-                method: "GET",
-                success: function( data, status, jqXHR  )
-                {
-                    if   ( data == "" ) $( "#editor-state" )[0].innerHTML = STATUS_NEW
-                    else                $( "#editor-state" )[0].innerHTML = STATUS_EDIT
+                if   ( data == "" ) $( "#editor-state" )[0].innerHTML = STATUS_NEW
+                else                $( "#editor-state" )[0].innerHTML = STATUS_EDIT
 
-                    jQuery( "#article-title" )[0].value = title
-                    jQuery( 'div#froala-editor').froalaEditor( 'html.set', data )
-                },
-                error: function( jqXHR, status, error )
-                {
-                    jQuery('div#froala-editor').froalaEditor( 'html.set', "" )
-                },
-            }
-        )
+                jQuery( "#article-title" )[0].value = title
+                jQuery( 'div#froala-editor').froalaEditor( 'html.set', data )
+            },
+            error: function( jqXHR, status, error )
+            {
+                jQuery('div#froala-editor').froalaEditor( 'html.set', "" )
+            },
+        })
     }
 
     function getQuery()
@@ -102,19 +100,17 @@ $(document).ready( function() { editorMain()
     function onArticleVerify( title )
     {
         // send ajax request to submit the article
-        jQuery.ajax(
-            {
-                url: "/editor/verify?title="+title,
-                method: "GET",
-                success: function( data, status, jqXHR  ) 
-                { 
-                    if( data == "" ) visualState( STATUS_NEW, "" )
-                    else visualState( STATUS_EDIT, data )
-                    
-                },
-                error:   function( jqXHR, status, error ) { visualState( STATUS_EDIT, data ) },
-            }
-        )
+        jQuery.ajax({
+            url: "/editor/verify?title="+title,
+            method: "GET",
+            success: function( data, status, jqXHR  ) 
+            { 
+                if( data == "" ) visualState( STATUS_NEW, "" )
+                else visualState( STATUS_EDIT, data )
+                
+            },
+            error:   function( jqXHR, status, error ) { visualState( STATUS_EDIT, data ) },
+        })
     }
 
     // simple visual notification for now.
@@ -203,16 +199,14 @@ $(document).ready( function() { editorMain()
     function requestArticleSubmit( title, content )
     {
         // send ajax request to submit the article
-        jQuery.ajax(
-            {
-                url: "/editor/submit?title="+title,
-                data: { "Content": content },
-                datatype: "html",
-                method: "PUT",
-                success: onArticleSubmitSuccess,
-                error: onArticleSubmitError,
-            }
-        )
+        jQuery.ajax({
+            url: "/editor/submit?title="+title,
+            data: { "Content": content },
+            datatype: "html",
+            method: "PUT",
+            success: onArticleSubmitSuccess,
+            error: onArticleSubmitError,
+        })
     }
     
     // Perform error handling here.
@@ -249,21 +243,19 @@ $(document).ready( function() { editorMain()
     function requestArticleDelete( title )
     {
         // send ajax request to submit the article
-        jQuery.ajax(
-            {
-                url: "/editor/delete?title="+title,
-                method: "DELETE",
-                success: onArticleDeleteSuccess,
-                error: onArticleDeleteError,
-            }
-        )
+        jQuery.ajax({
+            url: "/editor/delete?title="+title,
+            method: "DELETE",
+            success: onArticleDeleteSuccess,
+            error: onArticleDeleteError,
+        })
     }
 
     // Perform error handling here.
     function onArticleDeleteError( jqXHR, status, error )
     {
-        //console.log( status )
-        //console.log( error  )
+        console.log( status )
+        console.log( error  )
     }
 
     // switch webpage here.
